@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "@/components/loading-spinner";
+import { ensureGuestSession } from "@/lib/client-session";
 import { TemplateDefinition } from "@/lib/templates";
 
 interface TemplateListResponse {
@@ -20,6 +21,7 @@ export const TemplateSelector = () => {
     setLoading(true);
     setError(null);
     try {
+      await ensureGuestSession();
       const response = await fetch("/api/templates/list");
       if (!response.ok) {
         throw new Error("Failed to load templates");
@@ -42,6 +44,7 @@ export const TemplateSelector = () => {
     setSaving(templateId);
     setError(null);
     try {
+      await ensureGuestSession();
       const response = await fetch("/api/templates/select", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

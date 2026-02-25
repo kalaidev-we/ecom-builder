@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { LoadingSpinner } from "@/components/loading-spinner";
+import { ensureGuestSession } from "@/lib/client-session";
 import { Product, Store } from "@/types";
 
 interface ProductsResponse {
@@ -28,6 +29,7 @@ export const ProductManager = () => {
     setLoading(true);
     setError(null);
     try {
+      await ensureGuestSession();
       const response = await fetch("/api/products/list");
       if (!response.ok) throw new Error("Failed to load products");
       const payload = (await response.json()) as ProductsResponse;
@@ -60,6 +62,7 @@ export const ProductManager = () => {
     };
 
     try {
+      await ensureGuestSession();
       const endpoint = editingId ? "/api/products/update" : "/api/products/create";
       const response = await fetch(endpoint, {
         method: editingId ? "PATCH" : "POST",
@@ -94,6 +97,7 @@ export const ProductManager = () => {
   const handleDelete = async (productId: string) => {
     setError(null);
     try {
+      await ensureGuestSession();
       const response = await fetch("/api/products/delete", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },

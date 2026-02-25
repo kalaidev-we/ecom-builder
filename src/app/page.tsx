@@ -6,18 +6,30 @@ export default function HomePage() {
           GitCommerce SaaS
         </p>
         <h1 className="max-w-3xl text-4xl font-black tracking-tight text-slate-900 md:text-6xl">
-          Launch a product store from GitHub in minutes.
+          Build first. Analyze second. Connect GitHub last.
         </h1>
         <p className="mt-5 max-w-2xl text-base text-slate-600 md:text-lg">
-          Authenticate with GitHub, manage products from a dashboard, and deploy a complete static
-          storefront to GitHub Pages automatically.
+          You can now create products and review analysis before OAuth. GitHub connection happens
+          only when you deploy.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="/api/auth/github/login"
+            href="/build"
             className="inline-flex items-center rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
           >
-            Continue with GitHub
+            Start Build
+          </a>
+          <a
+            href="/analysis"
+            className="inline-flex items-center rounded-xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Open Analysis
+          </a>
+          <a
+            href="/deploy"
+            className="inline-flex items-center rounded-xl border border-brand-300 bg-brand-50 px-6 py-3 text-sm font-semibold text-brand-700 transition hover:bg-brand-100"
+          >
+            Final Step: Deploy
           </a>
         </div>
       </section>

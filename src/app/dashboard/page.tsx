@@ -15,7 +15,7 @@ export default async function DashboardPage() {
   const user = await getCurrentUserById(userId);
 
   if (!user) {
-    redirect("/");
+    redirect("/build");
   }
 
   const store = await getStoreForUser(user.id);

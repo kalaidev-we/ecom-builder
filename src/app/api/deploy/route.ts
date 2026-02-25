@@ -15,6 +15,12 @@ export async function POST(request: NextRequest) {
   if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+  if (!user.github_token) {
+    return NextResponse.json(
+      { error: "Connect GitHub to deploy as the final step." },
+      { status: 401 },
+    );
+  }
 
   try {
     const body = (await request.json()) as DeployPayload;
