@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{STORE_NAME}}</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="background"></div>
+  <main class="shell">
+    <header class="hero">
+      <p class="kicker">Modern Commerce</p>
+      <h1>{{STORE_NAME}}</h1>
+      <p>High-converting storefront with a clean contemporary layout.</p>
+    </header>
+    <section id="product-grid" class="cards">
+      {{PRODUCT_LIST}}
+    </section>
+  </main>
+  <script>
+    window.GIT_COMMERCE_BOOTSTRAP = {{PRODUCT_JSON}};
+  </script>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{STORE_NAME}}</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>{{STORE_NAME}}</h1>
+      <p>Minimal storefront powered by GitCommerce.</p>
+    </header>
+    <section id="product-grid" class="product-grid">
+      {{PRODUCT_LIST}}
+    </section>
+  </main>
+  <script>
+    window.GIT_COMMERCE_BOOTSTRAP = {{PRODUCT_JSON}};
+  </script>
+  <script src="./script.js"></script>
+</body>
+</html>
